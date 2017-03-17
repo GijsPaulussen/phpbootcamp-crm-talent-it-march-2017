@@ -112,35 +112,6 @@ class LinkedIn
     }
 
     /**
-     * Retrieve the basic profile details from the logged-in user
-     *
-     * @param string $accessToken
-     * @param string $format
-     * @return array
-     */
-    public function getBasicProfileDetails($accessToken, $format = 'json')
-    {
-        try {
-            $response = $this->guzzleClient->request('GET', self::LINKEDIN_BASE_URL . '/people/~', [
-                'query' => [
-                    'oauth2_access_token' => $accessToken,
-                    'format' => $format,
-                ],
-                'verify' => false
-            ]);
-        } catch (ClientException $exception) {
-            throw new \RuntimeException($exception->getMessage());
-        }
-
-        if (200 !== $response->getStatusCode()) {
-            throw new \RuntimeException('Something went wrong');
-        }
-        $result = $response->getBody();
-
-        return \GuzzleHttp\json_decode($result, true);
-    }
-
-    /**
      * Retrieve the additional profile details from the logged-in user
      *
      * @param string $accessToken

@@ -149,7 +149,7 @@ class AuthController extends AbstractActionController
             return $this->redirect()->toRoute('auth/problem');
         }
 
-        return $this->redirect()->toRoute('auth/welcome');
+        return $this->redirect()->toRoute('dashboard');
     }
 
     public function welcomeAction()
