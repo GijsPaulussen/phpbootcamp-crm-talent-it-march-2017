@@ -1,0 +1,39 @@
+<?php $this->headTitle($this->translate('Overview of companies')) ?>
+
+<div class="container">
+
+    <div class="row">
+        <h1 class="h1"><?php echo $this->translate('Overview of companies') ?></h1>
+    </div>
+
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>&nbsp;</th>
+                <th>Company name</th>
+                <th>Add</th>
+            </tr>
+
+            <?php foreach ($this->companies as $company): ?>
+
+                <tr>
+                    <td>
+                        <?php if (null !== $company->getImages()): ?>
+                        <img src="<?php echo $company->getImages()->current()->getImageLink() ?>" width="24" height="24">
+                        <?php endif ?>
+                    </td>
+                    <td><?php echo $this->escapeHtml($company->getCompanyName()) ?></td>
+                    <td>
+                        Edit |
+                        Delete
+                    </td>
+                </tr>
+
+            <?php endforeach ?>
+        </table>
+
+        <br>
+        <?php echo $this->paginationControl($this->companies, 'Sliding', 'paginator-slide', []); ?>
+    </div>
+
+</div>
