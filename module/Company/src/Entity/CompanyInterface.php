@@ -1,8 +1,14 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+namespace Company\Entity;
 
+
+interface CompanyInterface extends CompanyAwareInterface
+{
+    /**
+     * Retrieve the name from this Company
+     *
+     * @return string
+     */
+    public function getCompanyName();
+}
