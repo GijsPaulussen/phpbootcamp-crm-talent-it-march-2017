@@ -51,7 +51,7 @@ class CompanyModel implements CompanyModelInterface
     /**
      * @inheritdoc
      */
-    public function fetchAllCompanys($companyId)
+    public function fetchAllCompanies($companyId)
     {
         $sql = new Sql($this->db);
         $select = $sql->select(self::TABLE_NAME);

@@ -14,6 +14,6 @@ interface CompanyModelInterface
      * @param int $memberId
      * @return Paginator
      */
-    public function fetchAllCompanys($memberId);
+    public function fetchAllCompanies($memberId);
 
 }
